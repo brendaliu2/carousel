@@ -7,7 +7,15 @@ it("renders without crashing", function () {
     photos={TEST_IMAGES}
     title="images for testing"
   />);
-  });
+});
+
+it("matches snapshot", function () {
+  const { container } = render(<Carousel
+    photos={TEST_IMAGES}
+    title="images for testing"
+  />);
+  expect(container).toMatchSnapshot();
+});
 
 it("works when you click on the right arrow", function() {
   const { container } = render(
@@ -83,6 +91,7 @@ it('hides right arrow on last photo', function () {
     title="images for testing"
   />);
   
+  //TODO: change rightArrow to loop of photos length
   const rightArrow = container.querySelector('.bi-arrow-right-circle');
   fireEvent.click(rightArrow);
   fireEvent.click(rightArrow);
@@ -92,10 +101,3 @@ it('hides right arrow on last photo', function () {
   ).not.toBeInTheDocument()
 })
 
-it("matches snapshot", function () {
-  const { container } = render(<Carousel
-    photos={TEST_IMAGES}
-    title="images for testing"
-  />);
-  expect(container).toMatchSnapshot();
-  });

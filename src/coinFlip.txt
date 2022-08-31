@@ -1,0 +1,9 @@
+FlipCoin.js
+    title
+    coin display <Coin />
+    button
+    count of heads and tails
+    
+Coin.js
+    random generator -> 0 or 1
+    coin photo obj {name: head/tail img:}
